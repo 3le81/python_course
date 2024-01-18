@@ -11,9 +11,9 @@ for i in range(9):
         # Add one more star for the first 4 iterations
         stars += "*"
     else:
-        """ Remove one star for the remaining iterations,
-        using a slicing notation to indicate that we want
-        all the characters in the string except the last one."""
+        # Remove one star for the remaining iterations
+        # Using slicing notation to remove the last character
         stars = stars[:-1]
 
-# tried with range(23) and the if i < 11 it's even nicer!
+
+# I tried with range(23) and found that if i < 11, it's even nicer!
