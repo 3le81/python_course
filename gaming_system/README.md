@@ -12,7 +12,7 @@ This project is part of my learning journey at HyperionDev Software Engineering 
 My mission was to create PlayMaster, a gaming system that simulates a game of personal choice, packed with features to elevate the gaming experience:
 
 - **User Profiles:** Users can create profiles, login, and validate passwords.
-- **Game Features:** Creation, pausing, resuming, and viewing past games.
+- **Game Features:** Creation, pausing/resuming, and viewing past games.
 - **Scoring and Ranking:** A system to track scores and rank users.
 
 ## Project File Structure
@@ -29,42 +29,43 @@ To keep things organized, I structured the project with the following layout:
 
 1. **Login System:**
 
-   - [ ] Users can register new accounts.
-   - [ ] During registration, users enter a username, password, and confirm the password.
-   - [ ] The system checks if passwords match before adding a new user.
+   - [✅] Users can register new accounts.
+   - [✅] During registration, users enter a username, password, and confirm the password.
+   - [✅] The system checks if passwords match before adding a new user.
 
 2. **Menu:**
 
-   - [ ] Implemented a dynamic menu displaying various options.
+   - [✅] Implemented a dynamic menu displaying various options.
    - [ ] Options include starting a new game, resuming a game, viewing leaderboards, and more.
 
 3. **Gameplay:**
 
-   - [ ] Chose an exciting game (went with Hangman, it's a classic!).
-   - [ ] Added a scoring mechanism to make things competitive.
+   - [✅] Choose one of two classic games (went with Guess the Number and Hangman).
+   - [✅] Added a scoring mechanism to make things competitive.
 
 4. **Pause and Resume:**
 
-   - [ ] Users can now pause a game at any point.
-   - [ ] Implemented a mechanism to save the current game state for later resumption.
+   - [ ] Users can pause a game at any point.
+   - [ ] Implement a mechanism to save the current game state for later resumption.
 
 5. **Game History:**
 
-   - [ ] Users can view a comprehensive history of their played games.
-   - [ ] Displayed scores achieved in each game.
+   - [✅] Users can view a comprehensive history of their played games.
+   - [✅] Displayed scores achieved in each game.
 
 ### Advanced Challenge
 
-- [ ] Implemented support for multiple games, each with its own leaderboards.
+- [ ] Implement support for multiple games, each with its own leaderboards.
 
-## How to Run
+
+## How to Run PlayMaster
 
 - **Follow the on-screen instructions to register, login, and dive into the gaming world.**
 
 ## Notes
 
 - Ensure that you enter the correct username and password during registration and login.
-- If a user doesn't exist, register first before attempting to log in.
+- If a user doesn't exist, register first before attempting to log in!
 - Make sure you have Python installed to run the program.
 
 ## Future Enhancements
