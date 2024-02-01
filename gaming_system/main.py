@@ -28,8 +28,8 @@ GAME_HISTORY_PATH = os.path.join(GAMING_SYSTEM_PATH, "game_history.pickle")
 user_data = []       # User account information (username, password)
 game_history = {}    # Dictionary to store user game history
 
-# Function to clear the console screen
 
+# Function to clear the console screen
 
 def clear_screen():
     if os.name == 'nt':
@@ -37,8 +37,8 @@ def clear_screen():
     else:
         os.system('clear')
 
-# Function to create necessary folders
 
+# Function to create necessary folders
 
 def create_folders():
     folders = [GAMING_SYSTEM_PATH, USER_DATA_PATH,
@@ -50,10 +50,11 @@ def create_folders():
 
 
 # Call the function to create folders
+            
 create_folders()
 
-# Function to load user data from file
 
+# Function to load user data from file
 
 def load_user_data():
     if os.path.exists(USER_DETAILS_PATH):
@@ -61,16 +62,16 @@ def load_user_data():
             return [line.strip().split(", ") for line in file]
     return []
 
-# Function to save user data to file
 
+# Function to save user data to file
 
 def save_user_data():
     with open(USER_DETAILS_PATH, "w") as file:
         for username, password in user_data:
             file.write(f"{username}, {password}\n")
 
-# Function to load game history from file
 
+# Function to load game history from file
 
 def load_game_history():
     if os.path.exists(GAME_HISTORY_PATH):
@@ -78,39 +79,47 @@ def load_game_history():
             return pickle.load(file)
     return {}
 
-# Function to save game history to file
 
+# Function to save game history to file
 
 def save_game_history():
     with open(GAME_HISTORY_PATH, "wb") as file:
         pickle.dump(game_history, file)
 
-# Function for user registration
 
+# Function for user registration
 
 def register_user():
     global user_data
     print("\n=== User Registration ===")
     username = input("Enter your username: ")
 
-    # Check if the username already exists
+
+# Check if the username already exists
+
     if any(username == user[0] for user in user_data):
         print("Username already exists. Please choose another.")
         return
+    
 
-    # Prompt the user to enter a password
+# Prompt the user to enter a password
+    
     password = input("Enter your password: ")
 
-    # Add the user to the user_data list
+
+# Add the user to the user_data list
+    
     user_data.append((username, password))
 
-    # Save the updated user data to file
+
+# Save the updated user data to file
+    
     save_user_data()
 
     print("User registration successful!")
 
-# Function for user login
 
+# Function for user login
 
 def login_user():
     global user_data
@@ -118,10 +127,13 @@ def login_user():
     username = input("Enter your username: ")
     password = input("Enter your password: ")
 
-    # Check if the user exists
+
+# Check if the user exists
+    
     user_exists = any(username == user[0] for user in user_data)
 
     if user_exists:
+
         # Find the user with the entered username
         user = next(user for user in user_data if user[0] == username)
 
@@ -149,10 +161,9 @@ def display_menu():
 
 
 # Function to play the Guess the Number game
+    
 def play_guess_the_number():
     print("\n=== Guess the Number ===")
-    # Implement Guess the Number game logic here
-    # For example:
     secret_number = random.randint(1, 100)
     attempts = 0
 
@@ -176,8 +187,8 @@ def play_guess_the_number():
         else:
             print("Too high! Try again.")
 
-# Function to play the Hangman game
 
+# Function to play the Hangman game
 
 def play_hangman():
     print("\n=== Hangman ===")
@@ -217,6 +228,7 @@ def play_hangman():
 
 
 # Function to play a game based on user choice
+
 def play_game():
     global game_history, current_user
 
@@ -271,7 +283,6 @@ def play_game():
 
 # Helper function to handle game results
 
-
 def handle_game_result(game_result):
     global game_history, current_user
 
@@ -284,8 +295,8 @@ def handle_game_result(game_result):
         })
         save_game_history()
 
-# Helper function to logout the user
 
+# Helper function to logout the user
 
 def logout_user():
     global current_user
@@ -297,7 +308,6 @@ def logout_user():
 
 # Function to view user's game history
 
-
 def view_game_history():
     global game_history
     print("\n=== Game History ===")
@@ -306,9 +316,9 @@ def view_game_history():
         for game in games:
             print(
                 f"   - Game ID: {game['game_id']}, Game: {game['game']}, Score: {game['score']}")
+            
 
 # Function to implement scoring and ranking
-
 
 def calculate_score(game_type, game_duration):
     # Example: Score based on game duration
@@ -321,6 +331,7 @@ def calculate_score(game_type, game_duration):
 
 
 # Main program execution
+    
 def main():
     # Declare current_user as a global variable
     global user_data, game_history, current_user
@@ -382,5 +393,6 @@ def main():
 
 
 # Start the program
+                
 if __name__ == "__main__":
     main()
