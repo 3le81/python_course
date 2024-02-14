@@ -22,25 +22,25 @@ with open("tasks.txt", 'r') as task_file:
 
 task_list = []
 for t_str in task_data:
-    curr_t = {}
+    current_task = {}
 
     # Split by semicolon and manually add each component
     task_components = t_str.split(";")
-    curr_t['username'] = task_components[0]
-    curr_t['title'] = task_components[1]
-    curr_t['description'] = task_components[2]
-    curr_t['due_date'] = datetime.strptime(
+    current_task['username'] = task_components[0]
+    current_task['title'] = task_components[1]
+    current_task['description'] = task_components[2]
+    current_task['due_date'] = datetime.strptime(
         task_components[3], DATETIME_STRING_FORMAT)
-    curr_t['assigned_date'] = datetime.strptime(
+    current_task['assigned_date'] = datetime.strptime(
         task_components[4], DATETIME_STRING_FORMAT)
-    curr_t['completed'] = True if task_components[5] == "Yes" else False
+    current_task['completed'] = True if task_components[5] == "Yes" else False
 
-    task_list.append(curr_t)
+    task_list.append(current_task)
 
 # ====Login Section====
-'''This code reads usernames and password from the user.txt file to 
+"""This code reads usernames and password from the user.txt file to 
     allow a user to login.
-'''
+"""
 
 
 def clear_screen():
@@ -82,9 +82,7 @@ while not logged_in:
 
 
 def reg_user():
-    """
-    Function to register a new user.
-    """
+    # Function to register a new user.
     while True:
         # - Request input of a new username
         new_username = input("New Username: ")
@@ -121,6 +119,7 @@ def add_task():
              - A description of the task and 
              - the due date of the task.
     """
+
     task_username = input("Name of person assigned to task: ")
     if task_username not in username_password.keys():
         print("User does not exist. Please enter a valid username")
@@ -139,8 +138,10 @@ def add_task():
 
     # Then get the current date.
     curr_date = date.today()
-    ''' Add the data to the file task.txt and
-            Include 'No' to indicate if the task is complete.'''
+    """
+    Add the data to the file task.txt and
+    Include 'No' to indicate if the task is complete.
+    """
     new_task = {
         "username": task_username,
         "title": task_title,
@@ -280,11 +281,11 @@ def display_statistics():
         if choice == '1':
             if os.path.exists("task_overview.txt") and os.path.exists("user_overview.txt"):
                 with open("task_overview.txt", 'r') as task_file:
-                    print("\nTask Overview Report:")
+                    print("\n")
                     print(task_file.read())
 
                 with open("user_overview.txt", 'r') as user_file:
-                    print("\nUser Overview Report:")
+                    print("\n")
                     print(user_file.read())
             else:
                 print("No existing reports found. Please generate reports first.")
@@ -294,11 +295,11 @@ def display_statistics():
                 generate_reports(task_list)
 
             with open("task_overview.txt", 'r') as task_file:
-                print("\nTask Overview Report:")
+                print("\n")
                 print(task_file.read())
 
             with open("user_overview.txt", 'r') as user_file:
-                print("\nUser Overview Report:")
+                print("\n")
                 print(user_file.read())
 
         elif choice == '3':
@@ -309,9 +310,7 @@ def display_statistics():
 
 
 def generate_reports(task_list):
-    """
-    Function to generate reports.
-    """
+    # Function to generate reports.
     total_tasks = len(task_list)
 
     if total_tasks == 0:
@@ -332,7 +331,7 @@ def generate_reports(task_list):
         task_overview_file.write("Task Overview Report\n")
         task_overview_file.write(f"Total Tasks: {total_tasks}\n")
         task_overview_file.write(f"Completed Tasks: {completed_tasks}\n")
-        task_overview_file.write(f"Uncompleted Tasks: {incomplete_tasks}\n")
+        task_overview_file.write(f"Incomplete Tasks: {incomplete_tasks}\n")
         task_overview_file.write(f"Overdue Tasks: {overdue_tasks}\n")
         task_overview_file.write(
             f"Percentage of Incomplete Tasks: {(incomplete_tasks / total_tasks) * 100:.2f}%\n")
@@ -378,19 +377,13 @@ def generate_reports(task_list):
 
 
 # Main menu
-def clear_screen():
-    # Clear the screen based on the platform
-    os.system('cls' if os.name == 'nt' else 'clear')
-
-
 clear_screen()
 
 
 while True:
-    # presenting the menu to the user and
-    # making sure that the user input is converted to lower case.
+    # presenting the menu to the user and making sure that the user input is converted to lower case.
     print()
-    menu = input('''Select one of the following Options below:
+    menu = input('''Please select one of the following options: \n
 r - Registering a user
 a - Adding a task
 va - View all tasks
@@ -420,7 +413,8 @@ e - Exit
         display_statistics()
 
     elif menu == 'e':
-        print('Exiting the program now..Goodbye!')
+        print('\nExiting the program now..Goodbye!')
+        print('-'*60)
         exit()
 
     else:
