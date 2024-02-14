@@ -29,4 +29,4 @@ I'm always open to feedback and ideas to make this project even better!
 
 ![Screenshot](./screenshots/main_menu.png)
 ![Screenshot](./screenshots/view_contacts.png)
-
+![Screenshot](./screenshots/contact_book_task.png)
