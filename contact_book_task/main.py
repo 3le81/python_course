@@ -35,7 +35,7 @@ def print_welcome_message():
 
 
 def print_menu():
-    print("\nContact List Manager\n")
+    print("\nMAIN MENU:\n")
     print("1. Add Contact")
     print("2. Remove Contact")
     print("3. View Contacts")
