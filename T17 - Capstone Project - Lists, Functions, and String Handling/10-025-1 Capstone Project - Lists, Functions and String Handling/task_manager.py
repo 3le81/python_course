@@ -126,11 +126,18 @@ def add_task():
         return
     task_title = input("Title of Task: ")
     task_description = input("Description of Task: ")
+
     while True:
         try:
             task_due_date = input("Due date of task (YYYY-MM-DD): ")
             due_date_time = datetime.strptime(
                 task_due_date, DATETIME_STRING_FORMAT)
+
+            # Check if the due date is before today's date
+            if due_date_time.date() < date.today():
+                print("Error: Due date cannot be before today's date.")
+                continue
+
             break
 
         except ValueError:
