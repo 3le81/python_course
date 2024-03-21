@@ -60,13 +60,13 @@ To keep things organized, I structured the project with the following layout:
 
 - **Follow the on-screen instructions to register, login, and dive into the gaming world.**
 
-![Welcome](/images/welcome.png)
+![Welcome](./images/welcome.png)
 
-![Main Menu](/images/menu_game.png)
+![Main Menu](./images/menu_game.png)
 
-![View Scores](/images/scores.png)
+![View Scores](./images/scores.png)
 
-![Hangman](/images/hangman.png)
+![Hangman](./images/hangman.png)
 
 ## Notes
 
